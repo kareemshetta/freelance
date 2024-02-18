@@ -6,7 +6,7 @@ import { ErrorMessage } from "../src/utils/ErrorMessage.js";
 export function allRoutes(app, express, server) {
   app.use(express.json({}));
   app.get("/", (req, res) => {
-    res.send("welcome to techlogit");
+    res.send("welcome to feedback");
   });
   app.use("/feedback", feedbackRoute);
   // app.use("/user", userRoute);
