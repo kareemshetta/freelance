@@ -7,7 +7,7 @@ const schema = new Schema(
     },
     satisficationDelivaryQuestion: { type: Number, max: 5, min: 1 },
     satisficationOverallExperienceQuestion: { type: Number, max: 5, min: 1 },
-    receiveMenuQuestion: { type: Number, max: 5, min: 1 },
+    receiveMenuQuestion: { type: Number, max: 12, min: 1 },
   },
   { timestamps: true }
 );
