@@ -6,6 +6,6 @@ export const createFeedback = joi
     satisficationTasteAndQualityQuestion: joi.number().min(1).max(5).required(),
     satisficationDelivaryQuestion: joi.number().min(1).max(5).required(),
     satisficationOverallExperienceQuestion: joi.number().min(1).max(5),
-    receiveMenuQuestion: generalFields.email,
+    receiveMenuQuestion:joi.number().min(1).max(12),
   })
   .required();
