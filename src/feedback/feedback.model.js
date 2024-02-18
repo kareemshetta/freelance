@@ -3,11 +3,11 @@ import mongoose, { Schema } from "mongoose";
 const schema = new Schema(
   {
     satisficationTasteAndQualityQuestion: {
-      type: String,
+      type: { type: Number, max: 5, min: 1 },
     },
-    satisficationDelivaryQuestion: String,
+    satisficationDelivaryQuestion: { type: Number, max: 5, min: 1 },
     satisficationOverallExperienceQuestion: { type: Number, max: 5, min: 1 },
-    receiveMenuQuestion: String,
+    receiveMenuQuestion: { type: Number, max: 5, min: 1 },
   },
   { timestamps: true }
 );
