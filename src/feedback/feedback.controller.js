@@ -11,6 +11,7 @@ export const getAllFeedback = catchError(async (request, response, next) => {
 });
 
 export const addNewFeedback = catchError(async (request, response, next) => {
+  console.log(request.body);
   let result = new Feedback(request.body);
   result = await result.save();
   if (result) {
