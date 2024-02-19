@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
-
+import cron from "node-cron";
 import { dbConnectionAndServer } from "./dbAndServer/dbConnectionAndServer.js";
 import { allRoutes } from "./src/index.router.js";
 
@@ -44,3 +44,6 @@ app.use(express.json());
 //? all route
 allRoutes(app, express);
 // export { io };
+cron.schedule("*/10 * * * *", async () => {
+  await axios.get("https://feedback-vgoq.onrender.com/");
+});
