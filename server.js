@@ -7,7 +7,7 @@ import cors from "cors";
 import cron from "node-cron";
 import { dbConnectionAndServer } from "./dbAndServer/dbConnectionAndServer.js";
 import { allRoutes } from "./src/index.router.js";
-
+import axios from "axios";
 //set directory dirname
 // const server = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

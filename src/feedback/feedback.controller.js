@@ -1,7 +1,7 @@
 import { Feedback } from "./feedback.model.js";
 import { ErrorMessage } from "../utils/ErrorMessage.js";
 import { catchError } from "../utils/catchAsyncError.js";
-
+import sendEmail, { getStyleHtml } from "../utils/email.js";
 export const getAllFeedback = catchError(async (request, response, next) => {
   const subscripers = await Feedback.find({});
   if (subscripers.length == 0) {
@@ -15,6 +15,16 @@ export const addNewFeedback = catchError(async (request, response, next) => {
   let result = new Feedback(request.body);
   result = await result.save();
   if (result) {
+    await sendEmail({
+      subject: "New Feedback",
+      to: "info@fratellijo.com",
+      html: getStyleHtml({
+        feedback1: request.body.satisficationTasteAndQualityQuestion,
+        feedback2: request.body.satisficationDelivaryQuestion,
+        feedback3: request.body.satisficationOverallExperienceQuestion,
+        phone: request.body.receiveMenuQuestion,
+      }),
+    });
     return response.status(201).json({
       message: "Add  Successfully 😃",
       result,
