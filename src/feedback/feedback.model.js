@@ -2,9 +2,9 @@ import mongoose, { Schema } from "mongoose";
 
 const schema = new Schema(
   {
-    satisficationTasteAndQualityQuestion: { type: Number, max: 5, min: 1 },
-    satisficationDelivaryQuestion: { type: Number, max: 5, min: 1 },
-    satisficationOverallExperienceQuestion: { type: Number, max: 5, min: 1 },
+    satisficationTasteAndQualityQuestion: { type: Number, max: 5, min: 0 },
+    satisficationDelivaryQuestion: { type: Number, max: 5, min: 0 },
+    satisficationOverallExperienceQuestion: { type: Number, max: 5, min: 0 },
     receiveMenuQuestion: { type: String },
   },
   { timestamps: true }
