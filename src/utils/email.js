@@ -212,7 +212,13 @@ export default sendEmail;
 //     </html>`;
 // };
 
-const getStyleHtml = ({ feedback1, feedback2, feedback3, phone }) => {
+const getStyleHtml = ({
+  feedback1,
+  feedback2,
+  feedback3,
+  feedback4,
+  phone,
+}) => {
   return `
 <!DOCTYPE html>
 <html>
@@ -275,9 +281,10 @@ const getStyleHtml = ({ feedback1, feedback2, feedback3, phone }) => {
 
      <div class="text-left"><p class="m-0 p-0 garet">Did the delivery arrive within the estimated time frame?</p><p class="m-0 p-0 jf">هل وصلت الطلبية في الوقت المحدد؟</p></div>
        <p>${feedback2}</p>
-<p class="m-0 p-0 garet">On scale from 1 to 5, How would you rate the overall experience, including both the food and the delivery service?</p>
+     <p class="m-0 p-0 garet">On scale from 1 to 5, How would you rate the overall experience, including both the food and the delivery service?</p>
       <p>${feedback3}</p>
-
+ <div class="text-left"><p class="m-0 p-0 garet">Did you find the portion size satisfactor?</p><p class="m-0 p-0 jf">هل كانت كمية الطعام كافية؟</p></div>
+       <p>${feedback4}</p>
       <div class="text-left"><p class="garet p-0 m-0">Would you like to recieve our menu please add your phone</p><p class="jf">هل تود ان نرسل اليك قائمة الطعام؟ أضف رقم التليفون</p></div>
        <p>${phone}</p>
     </div>

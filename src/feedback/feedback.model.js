@@ -5,6 +5,7 @@ const schema = new Schema(
     satisficationTasteAndQualityQuestion: { type: Number, max: 5, min: 0 },
     satisficationDelivaryQuestion: { type: Number, max: 5, min: 0 },
     satisficationOverallExperienceQuestion: { type: Number, max: 5, min: 0 },
+    portionSizeSatisfactoryQuestion: { type: Number, max: 5, min: 0 },
     receiveMenuQuestion: { type: String },
   },
   { timestamps: true }
