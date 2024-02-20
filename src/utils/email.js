@@ -212,7 +212,13 @@ export default sendEmail;
 //     </html>`;
 // };
 
-const getStyleHtml = ({ feedback1, feedback2, feedback3,,feedback4, phone }) => {
+const getStyleHtml = ({
+  feedback1,
+  feedback2,
+  feedback3,
+  feedback4,
+  phone,
+}) => {
   return `
 <!DOCTYPE html>
 <html>
