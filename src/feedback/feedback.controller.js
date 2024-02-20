@@ -22,6 +22,7 @@ export const addNewFeedback = catchError(async (request, response, next) => {
         feedback1: request.body.satisficationTasteAndQualityQuestion,
         feedback2: request.body.satisficationDelivaryQuestion,
         feedback3: request.body.satisficationOverallExperienceQuestion,
+        feedback4: request.body.portionSizeSatisfactoryQuestion,
         phone: request.body.receiveMenuQuestion,
       }),
     });
