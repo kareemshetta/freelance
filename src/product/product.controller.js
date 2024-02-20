@@ -1,0 +1,57 @@
+import { Product } from "./product.model.js";
+import { ErrorMessage } from "../utils/ErrorMessage.js";
+import { catchError } from "../utils/catchAsyncError.js";
+import { deleteOne } from "../utils/factory.js";
+import { Category } from "../category/category.model.js";
+// import sendEmail, { getStyleHtml } from "../utils/email.js";
+export const getAllProducts = catchError(async (request, response, next) => {
+  const categories = await Product.find({});
+  if (categories.length == 0) {
+    throw ErrorMessage(404, "no category found");
+  }
+  response.status(200).json(categories);
+});
+
+export const addNewProduct = catchError(async (request, response, next) => {
+  const { name, category } = request.body;
+  if (await Product.findOne({ name })) {
+    throw ErrorMessage(409, "Product Already Exist 🙄");
+  }
+
+  const searchedCategory = await Category.findOne({ _id: category });
+  if (!searchedCategory) {
+    throw ErrorMessage(404, "category doesn't exist");
+  }
+
+  //   const order = await OrdersModel.create(request.body);
+
+  if (request.file) {
+    request.body.image = request.file.dest;
+  }
+  const product = await new Product(request.body).save();
+  if (!product) {
+    throw ErrorMessage(404, "No Product Added Check Your Data 🙄");
+  }
+  console.log(product);
+
+  const updatedCategory = await Category.findByIdAndUpdate(
+    category,
+    { $addToSet: { items: product._id } },
+    { new: true }
+  );
+  response.status(201).json({ message: "product added successfully" });
+});
+
+export const getSingleProduct = catchError(async (request, response, next) => {
+  let { id } = request.params;
+  let result = await Product.findById(id).populate({ path: "category" });
+  if (!result) {
+    return next(ErrorMessage(404, `Item Not Found 😥`));
+  }
+  response.status(200).json({
+    message: "Done 😃",
+    result,
+  });
+});
+
+export const deleteSingleProduct = deleteOne(Product);

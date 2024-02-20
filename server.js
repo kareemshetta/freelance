@@ -38,8 +38,8 @@ dbConnectionAndServer(app);
 app.use(morgan("dev"));
 
 app.use(express.json());
-// //? route for accessing images on server
-// app.use("/uploads", express.static(path.join(__dirname, "./src/uploads/")));
+//? route for accessing images on server
+app.use("/uploads", express.static(path.join(__dirname, "./src/uploads/")));
 
 //? all route
 allRoutes(app, express);
