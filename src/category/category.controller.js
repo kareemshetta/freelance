@@ -8,7 +8,15 @@ export const getAllCategories = catchError(async (request, response, next) => {
   if (categories.length == 0) {
     throw ErrorMessage(404, "no category found");
   }
-  response.status(200).json(categories);
+  response.status(200).json({
+    pizzaClassic: categories[0],
+    pizzaPremium: categories[1],
+    pasta: categories[2],
+    specialDish: categories[3],
+    salad: categories[4],
+    sides: categories[5],
+    beverages: categories[7],
+  });
 });
 
 export const addNewCategory = catchError(async (request, response, next) => {

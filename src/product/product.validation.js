@@ -6,6 +6,7 @@ export const createProduct = joi
     category: generalFields.id.required(),
     name: joi.string().min(1).max(255).required(),
     price: joi.number().min(0).max(500000000),
+    ingrdients: joi.string().min(1).max(600),
     file: generalFields.file,
   })
   .required();
