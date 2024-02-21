@@ -18,7 +18,6 @@ export const addNewFeedback = catchError(async (request, response, next) => {
     await sendEmail({
       subject: "New Feedback",
       to: "info@fratellijo.com",
-
       html: getStyleHtml({
         feedback1: request.body.satisficationTasteAndQualityQuestion,
         feedback2: request.body.satisficationDelivaryQuestion,
