@@ -16,7 +16,7 @@ const schema = new Schema(
 
     ingrdients: { type: String },
     price: { type: Number, default: 0 },
-    goodfor: { type: Number, default: 2 },
+    goodfor: { type: Number, default: 0 },
     spicy: { type: Boolean, default: false },
     image: { type: String },
   },
