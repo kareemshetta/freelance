@@ -15,7 +15,7 @@ export const getAllCategories = catchError(async (request, response, next) => {
     specialDish: categories[3],
     salad: categories[4],
     sides: categories[5],
-    beverages: categories[7],
+    beverages: categories[6],
   });
 });
 
