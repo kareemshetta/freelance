@@ -1,6 +1,8 @@
 // import userRoute from "./user/userRoute.js";
 import feedbackRoute from "./feedback/feedback.router.js";
 //
+import categoryRoute from "./category/category.router.js";
+import productRoute from "./product/product.router.js";
 import { ErrorMessage } from "../src/utils/ErrorMessage.js";
 
 export function allRoutes(app, express, server) {
@@ -9,6 +11,9 @@ export function allRoutes(app, express, server) {
     res.send("welcome to feedback");
   });
   app.use("/feedback", feedbackRoute);
+  app.use("/category", categoryRoute);
+  app.use("/product", productRoute);
+
   // app.use("/user", userRoute);
 
   //! Not Found Page
