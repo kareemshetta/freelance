@@ -16,11 +16,19 @@ router
     validation(validator.createProduct),
     controller.addNewProduct
   );
+
+router.route("/addMany").get(controller.updateMany);
 router
   .route("/:id")
   .get(validation(validator.findSingleProduct), controller.getSingleProduct)
   .delete(
     validation(validator.findSingleCategory),
     controller.deleteSingleProduct
+  )
+  .put(
+    fileUpload("products", fileValidation.image).single("image"),
+    validation(validator.updateProduct),
+    controller.updateSingleProduct
   );
+
 export default router;

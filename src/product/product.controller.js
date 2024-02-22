@@ -54,4 +54,33 @@ export const getSingleProduct = catchError(async (request, response, next) => {
   });
 });
 
+export const updateSingleProduct = catchError(
+  async (request, response, next) => {
+    let { id } = request.params;
+    if (request.file) {
+      request.body.image = request.file.dest;
+    }
+    console.log("body", request.body);
+    let result = await Product.findByIdAndUpdate(id, request.body, {
+      new: true,
+    });
+    if (!result) {
+      return next(ErrorMessage(404, `Item Not Found 😥`));
+    }
+    response.status(200).json({
+      message: "Done 😃",
+      result,
+    });
+  }
+);
+export const updateMany = catchError(async (request, response, next) => {
+  console.log("hiii");
+  await Product.updateMany(
+    {},
+    { $set: { image: "uploads/products/Dau_zJsl9KiYWjAaLOC4p_pizaa.jpg" } }
+  );
+  response.status(200).json({
+    message: "Done 😃",
+  });
+});
 export const deleteSingleProduct = deleteOne(Product);
