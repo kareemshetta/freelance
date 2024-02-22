@@ -24,6 +24,11 @@ router
   .delete(
     validation(validator.findSingleCategory),
     controller.deleteSingleProduct
+  )
+  .put(
+    fileUpload("products", fileValidation.image).single("image"),
+    validation(validator.updateProduct),
+    controller.updateSingleProduct
   );
 
 export default router;

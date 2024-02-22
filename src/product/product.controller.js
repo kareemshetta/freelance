@@ -34,11 +34,11 @@ export const addNewProduct = catchError(async (request, response, next) => {
   }
   console.log(product);
 
-  // const updatedCategory = await Category.findByIdAndUpdate(
-  //   category,
-  //   { $addToSet: { items: product._id } },
-  //   { new: true }
-  // );
+  const updatedCategory = await Category.findByIdAndUpdate(
+    category,
+    { $addToSet: { items: product._id } },
+    { new: true }
+  );
   response.status(201).json({ message: "product added successfully" });
 });
 
@@ -53,6 +53,26 @@ export const getSingleProduct = catchError(async (request, response, next) => {
     result,
   });
 });
+
+export const updateSingleProduct = catchError(
+  async (request, response, next) => {
+    let { id } = request.params;
+    if (request.file) {
+      request.body.image = request.file.dest;
+    }
+    console.log("body", request.body);
+    let result = await Product.findByIdAndUpdate(id, request.body, {
+      new: true,
+    });
+    if (!result) {
+      return next(ErrorMessage(404, `Item Not Found 😥`));
+    }
+    response.status(200).json({
+      message: "Done 😃",
+      result,
+    });
+  }
+);
 export const updateMany = catchError(async (request, response, next) => {
   console.log("hiii");
   await Product.updateMany(

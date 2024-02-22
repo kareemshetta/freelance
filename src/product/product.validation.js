@@ -16,3 +16,14 @@ export const findSingleProduct = joi
     id: generalFields.id.required(),
   })
   .required();
+
+export const updateProduct = joi
+  .object({
+    id: generalFields.id.required(),
+    category: generalFields.id,
+    name: joi.string().min(1).max(255),
+    price: joi.number().min(0).max(500000000),
+    ingrdients: joi.string().min(1).max(600),
+    file: generalFields.file,
+  })
+  .required();
