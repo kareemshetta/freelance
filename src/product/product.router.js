@@ -16,6 +16,8 @@ router
     validation(validator.createProduct),
     controller.addNewProduct
   );
+
+router.route("/addMany").get(controller.updateMany);
 router
   .route("/:id")
   .get(validation(validator.findSingleProduct), controller.getSingleProduct)
@@ -23,4 +25,5 @@ router
     validation(validator.findSingleCategory),
     controller.deleteSingleProduct
   );
+
 export default router;

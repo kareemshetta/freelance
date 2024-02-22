@@ -34,11 +34,11 @@ export const addNewProduct = catchError(async (request, response, next) => {
   }
   console.log(product);
 
-  const updatedCategory = await Category.findByIdAndUpdate(
-    category,
-    { $addToSet: { items: product._id } },
-    { new: true }
-  );
+  // const updatedCategory = await Category.findByIdAndUpdate(
+  //   category,
+  //   { $addToSet: { items: product._id } },
+  //   { new: true }
+  // );
   response.status(201).json({ message: "product added successfully" });
 });
 
@@ -53,5 +53,14 @@ export const getSingleProduct = catchError(async (request, response, next) => {
     result,
   });
 });
-
+export const updateMany = catchError(async (request, response, next) => {
+  console.log("hiii");
+  await Product.updateMany(
+    {},
+    { $set: { image: "uploads/products/Dau_zJsl9KiYWjAaLOC4p_pizaa.jpg" } }
+  );
+  response.status(200).json({
+    message: "Done 😃",
+  });
+});
 export const deleteSingleProduct = deleteOne(Product);
