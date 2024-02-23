@@ -52,15 +52,15 @@ export class ApiFeature {
   search() {
     if (this.queryString.keyword) {
       const searchObj = {
-        $or: [
-          {
-            name: { $regex: this.queryString.keyword, $options: "i" },
-          },
-          {
-            ingrdients: { $regex: this.queryString.keyword, $options: "i" },
-          },
-        ],
+        // $or: [
+        //   {
+        name: { $regex: this.queryString.keyword, $options: "i" },
       };
+      //   {
+      //     ingrdients: { $regex: this.queryString.keyword, $options: "i" },
+      //   },
+      // ],
+      // };
       this.mongooseQuery.find(searchObj);
     }
     return this;
