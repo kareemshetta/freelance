@@ -3,11 +3,13 @@ import { ErrorMessage } from "../utils/ErrorMessage.js";
 import { catchError } from "../utils/catchAsyncError.js";
 import { deleteOne } from "../utils/factory.js";
 import { Category } from "../category/category.model.js";
+import { ApiFeature } from "../utils/ApiFeature.js";
 // import sendEmail, { getStyleHtml } from "../utils/email.js";
 export const getAllProducts = catchError(async (request, response, next) => {
-  const categories = await Product.find({});
+  const apiFeature = new ApiFeature(Product.find({}), request.query).search();
+  const categories = await apiFeature.mongooseQuery;
   if (categories.length == 0) {
-    throw ErrorMessage(404, "no category found");
+    throw ErrorMessage(404, "no product  found");
   }
   response.status(200).json(categories);
 });
