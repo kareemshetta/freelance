@@ -8,9 +8,9 @@ import { ApiFeature } from "../utils/ApiFeature.js";
 export const getAllProducts = catchError(async (request, response, next) => {
   const apiFeature = new ApiFeature(Product.find({}), request.query).search();
   const categories = await apiFeature.mongooseQuery;
-  // if (categories.length == 0) {
-  //   throw ErrorMessage(404, "no category found");
-  // }
+  if (categories.length == 0) {
+    throw ErrorMessage(404, "no product  found");
+  }
   response.status(200).json(categories);
 });
 
