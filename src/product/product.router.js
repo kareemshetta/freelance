@@ -20,12 +20,12 @@ router
   .route("/:id")
   .get(validation(validator.findSingleProduct), controller.getSingleProduct)
   .delete(
-    // authorizedTo,
+    authorizedTo,
     validation(validator.findSingleCategory),
     controller.deleteSingleProduct
   )
   .put(
-    // authorizedTo,
+    authorizedTo,
     fileUpload("products", fileValidation.image).single("image"),
     validation(validator.updateProduct),
     controller.updateSingleProduct
