@@ -3,6 +3,7 @@ import feedbackRoute from "./feedback/feedback.router.js";
 //
 import categoryRoute from "./category/category.router.js";
 import productRoute from "./product/product.router.js";
+import userRoute from "./user/user.router.js";
 import { ErrorMessage } from "../src/utils/ErrorMessage.js";
 
 export function allRoutes(app, express, server) {
@@ -13,6 +14,7 @@ export function allRoutes(app, express, server) {
   app.use("/feedback", feedbackRoute);
   app.use("/category", categoryRoute);
   app.use("/product", productRoute);
+  app.use("/dashboard", userRoute);
 
   // app.use("/user", userRoute);
 
