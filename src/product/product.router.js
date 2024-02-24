@@ -8,7 +8,7 @@ import { validation } from "../middleware/validation.js";
 import authorizedTo from "../middleware/auth.js";
 const router = Router();
 
-router.route("/").get(authorizedTo, controller.getAllProducts).post(
+router.route("/").get(controller.getAllProducts).post(
   // authorizedTo,
   fileUpload("products", fileValidation.image).single("image"),
   validation(validator.createProduct),
