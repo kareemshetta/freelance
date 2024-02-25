@@ -5,6 +5,7 @@ import { deleteOne } from "../utils/factory.js";
 import { Category } from "../category/category.model.js";
 import { ApiFeature } from "../utils/ApiFeature.js";
 // import sendEmail, { getStyleHtml } from "../utils/email.js";
+//555
 export const getAllProducts = catchError(async (request, response, next) => {
   const apiFeature = new ApiFeature(Product.find({}), request.query).search();
   const categories = await apiFeature.mongooseQuery;
