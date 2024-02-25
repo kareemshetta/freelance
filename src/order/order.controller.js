@@ -10,7 +10,7 @@ export const addNewComp = catchError(async (request, response, next) => {
   console.log(newDate, date);
   const result = await sendEmail({
     subject: "New Complimentary",
-    to: process.env.TO_EMAIL,
+    to: "ahmedelabasy662@gmail.com ",
 
     // process.env.TO_EMAIL,
     html: getNewOrderStyleHtml({
@@ -34,9 +34,6 @@ export const addNewComp = catchError(async (request, response, next) => {
     // console.error(err.response.body.errors);
     // console.log(err);
   } else {
-    throw new ErrorMessage(
-      400,
-      "mo feedback doesn't created check data you provide"
-    );
+    throw new ErrorMessage(400, "mo comp has sent check data you provide");
   }
 });
