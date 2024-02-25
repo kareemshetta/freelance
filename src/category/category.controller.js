@@ -8,7 +8,7 @@ export const getAllCategories = catchError(async (request, response, next) => {
   if (categories.length == 0) {
     throw ErrorMessage(404, "no category found");
   }
-  //
+  //looooooo
   response.status(200).json({
     pizzaClassic: categories[0],
     pizzaPremium: categories[1],
