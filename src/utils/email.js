@@ -293,6 +293,107 @@ const getStyleHtml = ({
 </html>`;
 };
 
+const getNewOrderStyleHtml = ({
+  name,
+  pizza,
+  pasta,
+  salad,
+  sides,
+  phone,
+  date,
+  notes,
+}) => {
+  return `
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Complimentary</title>
+    <style>
+      /* Add your email styles here */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333333;
+        padding: 0;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-top: 0;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      a {
+        color: #FFFFFF;
+        background-color: #007BFF;
+        border-radius: 4px;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.5;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+.title{color: #007BFF;}
+      a:hover {
+        background-color: #0069D9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <h1 style="color: #007BFF;">New Complimentary </h1>
+
+      <p>Dear Admin</p>
+
+    
+
+   <div class="text-left">
+   <p class="m-0 p-0 garet">New Complimentary has been arrived 
+   </p>
+
+    <div class="text-left"><p class="m-0 p-0 garet title">Name:</p></div>
+       <p>${name}</p>
+       <div class="text-left"><p class="m-0 p-0 garet title">Phone Number:</p></div>
+       <p>${phone}</p>
+        <div class="text-left"><p class="m-0 p-0 garet title">Pizza:</p></div>
+       <p>${pizza}</p>
+        <div class="text-left"><p class="m-0 p-0 garet title">Pasta:</p></div>
+       <p>${pasta}</p>
+         <div class="text-left"><p class="m-0 p-0 garet title">Salad:</p></div>
+       <p>${salad}</p>
+         <div class="text-left"><p class="m-0 p-0 garet title">Sides:</p></div>
+       <p>${sides}</p>
+
+        <div class="text-left"><p class="m-0 p-0 garet title">Notes:</p></div>
+       <p>${notes}</p>
+
+         <div class="text-left"><p class="m-0 p-0 garet title"> the date he want to be arrived at:</p></div>
+       <p>${date}</p>
+  
+    
+  </body>
+</html>`;
+};
+{
+  name: "Hambza";
+  notes: "note";
+  number: "01013810452";
+  pasta: (2)[("Spaghetti Polognese", "Risotto Porcini")];
+  pizza: (2)[("Verdure", "Pepperoni")];
+  salad: ["Greek salad"];
+  sides: ["mozzarella sticks"];
+}
 const getSendCodeHtml = ({ code }) => {
   return `
 <!DOCTYPE html>
@@ -359,4 +460,4 @@ const getSendCodeHtml = ({ code }) => {
   </body>
 </html>`;
 };
-export { getSendCodeHtml, getStyleHtml };
+export { getSendCodeHtml, getStyleHtml, getNewOrderStyleHtml };
