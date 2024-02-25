@@ -32,6 +32,8 @@ export const signIn = catchError(async (request, response, next) => {
       payload: { email, id: user._id },
       expiresIn: 60 * 60 * 24,
     });
+
+    //bjjj
     // const refreshToken = generateToken({
     //   payload: { email, id: user._id },
     //   expiresIn: 60 * 60 * 24 * 365,
