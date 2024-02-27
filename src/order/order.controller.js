@@ -6,11 +6,12 @@ export const addNewComp = catchError(async (request, response, next) => {
   console.log(request.body);
   const { name, notes, pasta, pizza, salad, sides, number, date } =
     request.body;
-  const newDate = new Date(date).toDateString();
+  const newDate = new Date(date).toLocaleString();
   console.log(newDate, date);
   const result = await sendEmail({
     subject: "New Complimentary",
-    to: process.env.TO_EMAIL,
+    to: "ahmedelabasy662@gmail.com",
+    // process.env.TO_EMAIL,
     html: getNewOrderStyleHtml({
       name,
       phone: number,
